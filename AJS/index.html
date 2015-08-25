@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+<body ng-controller="Ctrl">
+
+    <div>
+        <input ng-model = "input1" type = "number"/>
+        <select ng-options = "a for a in array" ng-model = "operator">{{a}}</select>
+        <input ng-model = "input2" type = "number"/>
+        <button ng-click = "submit()" class="btn btn-primary">=</button>
+        <input ng-model="result"/>
+        <alert ng-show="result>100" type="success">Result Larger than 100!</alert>
+    </div>
+
+</body>
+<script src="angular.js"></script>
+<script src="ui-bootstrap-tpls-0.13.3.js"></script>
+<script>
+    angular.module('myApp',['ui.bootstrap']).controller('Ctrl', function($scope){
+        $scope.array = ["+", "-", "*", "/"];
+        $scope.submit = function (){
+            if ($scope.operator == "+") {
+                $scope.result = parseInt($scope.input1) + parseInt($scope.input2);
+            }
+            else if ($scope.operator == "-") {
+                $scope.result = parseInt($scope.input1) - parseInt($scope.input2);
+            }
+            else if ($scope.operator == "*") {
+                $scope.result = parseInt($scope.input1) * parseInt($scope.input2);
+            }
+            else if ($scope.operator == "/") {
+                $scope.result = parseInt($scope.input1) / parseInt($scope.input2);
+            }
+        };
+
+    });
+</script>
+</html>
