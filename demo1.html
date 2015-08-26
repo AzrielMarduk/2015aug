@@ -7,14 +7,14 @@
 </head>
 <body ng-controller="Ctrl">
 
-<div>
-    <input ng-model = "input1" type = "number"/>
-    <select ng-options = "a for a in array" ng-model = "operator">{{a}}</select>
-    <input ng-model = "input2" type = "number"/>
-    <button ng-click = "submit()" class="btn btn-primary">=</button>
-    <input ng-model="result"/>
-    <alert ng-show="result>100" type="success">Result Larger than 100!</alert>
-</div>
+    <div>
+        <input ng-model = "input1" type = "number"/>
+        <select ng-options = "a for a in array" ng-model = "operator">{{a}}</select>
+        <input ng-model = "input2" type = "number"/>
+        <button ng-click = "submit()" class="btn btn-primary">=</button>
+        <input ng-model="result"/>
+        <alert ng-show="result>100" type="success">Result Larger than 100!</alert>
+    </div>
 
 </body>
 <script src="angular.js"></script>

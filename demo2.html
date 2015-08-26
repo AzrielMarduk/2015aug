@@ -1,0 +1,44 @@
+<html ng-app="demo2">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="exam/controller/bootstrap.min.css">
+</head>
+<body ng-controller="Ctrl">
+<div>
+    <input type="email" ng-model="email"/>
+    <button type="button" ng-click="submitEmail()">Submit</button>
+    <ul ng-repeat="email in emails">
+        <li ng-bind="emails[$index]">
+            {{emails[$index]}}
+        </li>
+    </ul>
+    <div >
+        Group Name
+        <select ng-options="group for group in set" ng-model="group">{{group}}</select>
+        Person Name
+        <select ng-options="person in groups" ng-model="person">{{person}}</select>
+        Score
+        <select ng-options="score in groups" ng-model="score">{{score}}</select>
+    </div>
+</div>
+
+</body>
+<script src="angular.js"></script>
+<script src="ui-bootstrap-tpls-0.13.3.js"></script>
+
+<script>
+    var app = angular.module('demo2', ['ui.bootstrap']);
+    app.controller('Ctrl',function($scope){
+        $scope.emails=[];
+        $scope.submitEmail=function(){
+            $scope.emails.push($scope.email);
+        };
+
+        $scope.$watch('email', function() {
+            return $scope.email;
+        });
+    });
+
+</script>
+</html>

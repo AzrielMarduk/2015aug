@@ -1,0 +1,41 @@
+<html ng-app="demo3">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="exam/controller/bootstrap.min.css">
+</head>
+<body ng-controller="Ctrl">
+<div>
+    Group Name
+    <select ng-options="s.group for s in score" ng-model="g"></select>
+    Person Name
+    <select ng-options="n.name for n in g.info" ng-model="n" ng-change="result()"></select>
+    Score
+    <input type="text" ng-model="sc" disabled="true"/>
+</div>
+
+</body>
+<script src="angular.js"></script>
+<script src="ui-bootstrap-tpls-0.13.3.js"></script>
+
+<script>
+    var app = angular.module('demo3', ['ui.bootstrap']);
+    app.controller('Ctrl',function($scope){
+        $scope.score=[{group:"aaa", info:[{name:"AAA", score:111},
+            {name:"AAB", score:112},
+            {name:"AAC", score:113},
+            {name:"AAD", score:114}]},
+            {group:"bbb", info:[{name:"BBA", score:91},
+                {name:"BBB", score:92},
+                {name:"BBC", score:93},
+                {name:"BBD", score:94}]},
+            {group:"ccc", info:[{name:"CCA", score:11},
+                {name:"CCB", score:12},
+                {name:"CCC", score:13},
+                {name:"CCD", score:14}]}];
+        $scope.result = function(){
+            $scope.sc=$scope.n.score;
+        }
+    });
+</script>
+</html>
